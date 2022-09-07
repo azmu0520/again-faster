@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url(' {{ 'OpenSans-Regular.ttf' | asset_url }} ') format('truetype');
+
+}
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url(' {{ 'OpenSans-Bold.ttf' | asset_url }} ') format('truetype');
+}
+* {
+  font-family: 'OpenSans-Regular';
+}
+.opener__wrap {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background: url("{{'image.opener.hero.jpg' | asset_url }}");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.opener__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+  margin: auto 0 40px 40px;
+}
+
+.content__title {
+  font-family: 'OpenSans-Bold';
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 130%;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.content__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  color: #ffffff;
+  margin: 24px 0 40px 0;
+}
+
+.content__cta {
+  max-width: 236px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  border: 1px solid #ffffff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.175em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 0 24px;
+}
+
+.cta__icon {
+  margin-left: auto;
+}

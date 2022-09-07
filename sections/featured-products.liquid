@@ -1,0 +1,29 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<script></script>
+
+{{ 'style.featured-products.css' | asset_url | stylesheet_tag }}
+
+<div class="swiper swiper1">
+  <div class="swiper-wrapper">
+    {% for slide in product %}
+    <div class="swiper-slide">
+      <h1>title</h1>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  const swiper = new Swiper('.swiper1', {
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  });
+</script>

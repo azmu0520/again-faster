@@ -1,0 +1,19 @@
+{{ 'style.announcement.css' | asset_url | stylesheet_tag }}
+ 
+<div class="announcement__bar">
+  {{ section.settings.announcement | default:"20% OFF Sitewide until 9/12" }}
+   
+</div>
+
+{% schema %} 
+{ 
+    "name":"Announcement Bar", 
+    "settings":[ 
+                    { 
+                        "type":"text",
+                        "label":"Text goes here", 
+                        "id":"announcement"
+                    } 
+                ] 
+} 
+{% endschema %}

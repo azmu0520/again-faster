@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page_title }}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="{{ page_description | escape }}" />
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    {{
+      content_for_header
+    }}
+    <!-- Header hook for plugins -->
+    {{ 'application.css' | asset_url | stylesheet_tag }}
+    {{ 'application.js' | asset_url | script_tag }}
+  </head>
+  <body>
+    {% section 'announcement' %} 
+    
+    <nav class="header__nav">
+      <img src="{{'icons.header.logo.svg' | asset_url }}" alt="logo" class="nav__logo" />
+      <ul class="nav__links">
+       {% for link in linklists.main-menu.links %}
+         <li class="nav__link">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+         </li>
+       {% endfor %}
+      </ul>
+      <div class="nav__icons">
+        <img src="{{'icons.header.search.svg' | asset_url}}" alt="icons.header.search">
+        <img src="{{'icons.header.user.svg' | asset_url}}" alt="icons.header.user">
+        <img src="{{'icons.header.cart.svg' | asset_url}}" alt="icons.header.cart">
+      </div>
+    </nav>
+    
+    <main role="main">
+      {{ content_for_layout }} 
+    </main>
+  </body>
+</html>
