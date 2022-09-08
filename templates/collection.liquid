@@ -1,4 +1,21 @@
-{% paginate collection.products by 2 %}
+{{ 'style.collection' | asset_url | stylesheet_tag }}
+
+{{"https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"  | script_tag}}
+{{"https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" | stylesheet_tag}}
+
+<script>
+
+console.log({{collection | json}});
+
+</script>
+
+<div class="swiper swiper1">
+<div class="swiper-wrapper">
+  <!-- {% for product %} -->
+</div>
+</div>
+
+<!-- {% paginate collection.products by 2 %}
   <h1>{{ collection.title }}</h1>
   {% for product in collection.products %}
     <div>
@@ -15,4 +32,4 @@
   {% if paginate.pages > 1 %}
     {{ paginate | default_pagination }}
   {% endif %}
-{% endpaginate %}
+{% endpaginate %} -->
