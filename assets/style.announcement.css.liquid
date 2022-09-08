@@ -2,7 +2,18 @@
   font-family: 'Oswald-Light';
   src: url(' {{ 'Oswald-Light.ttf' | asset_url }} ') format('truetype');
 }
-.announcement__bar {
+
+ 
+
+.bar-main{
+background-color: #FBFBFB;
+color: #000000;
+}
+.bar-secondary{
+  background-color: #a8a1a1b2;
+  color: #FBFBFB;
+}
+.announcement {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,4 +30,11 @@
   font-family: 'Oswald-Light';
   position: fixed;
   top: 0px;
+  
+  
+}
+
+.announcement a {
+  text-decoration: none;
+  color: inherit;
 }

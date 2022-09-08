@@ -14,21 +14,17 @@
       content_for_header
     }}
     <!-- Header hook for plugins -->
-    {{ 'application.css' | asset_url | stylesheet_tag }}
+    {{ 'style.global.css' | asset_url | stylesheet_tag }}
     {{ 'application.js' | asset_url | script_tag }}
   </head>
   <body>
     {% section 'announcement' %} 
     {% section 'header' %} 
     
-   
-    
     <main role="main">
       {{ content_for_layout }} 
     </main>
 
-
-   
   </body>
  
 </html>

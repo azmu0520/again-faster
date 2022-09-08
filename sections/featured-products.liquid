@@ -11,19 +11,31 @@
 
 <div class="swiper swiper1">
   <div class="swiper-wrapper">
-    {% for slide in product %}
-    <div class="swiper-slide">
-      <h1>title</h1>
+    {% for product in collections %}
+    
+    <div class="swiper-slide collection-wrap">
+      <div class="image__wrapp">
+        <img src="{{product.image.src | img_url: 'medium'}}" alt="lelel" class="slide__img">
+      </div>
+      <h1 class="slide__title">{{product.title}}</h1>
     </div>
     {% endfor %}
+
+    <h1 class="swiper-slide">ad</h1>
   </div>
+  <div class="swiper-scrollbar"></div>
 </div>
+
+
+ 
 
 <script>
   const swiper = new Swiper('.swiper1', {
     // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
+    slidesPerView: 4,
+    scrollbar: {
+          el: ".swiper-scrollbar",
+          // hide: true,
+        },
   });
 </script>
