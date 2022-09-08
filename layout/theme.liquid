@@ -19,25 +19,17 @@
   </head>
   <body>
     {% section 'announcement' %} 
+    {% section 'header' %} 
     
-    <nav class="header__nav">
-      <img src="{{'icons.header.logo.svg' | asset_url }}" alt="logo" class="nav__logo" />
-      <ul class="nav__links">
-       {% for link in linklists.main-menu.links %}
-         <li class="nav__link">
-          <a href="{{ link.url }}">{{ link.title }}</a>
-         </li>
-       {% endfor %}
-      </ul>
-      <div class="nav__icons">
-        <img src="{{'icons.header.search.svg' | asset_url}}" alt="icons.header.search">
-        <img src="{{'icons.header.user.svg' | asset_url}}" alt="icons.header.user">
-        <img src="{{'icons.header.cart.svg' | asset_url}}" alt="icons.header.cart">
-      </div>
-    </nav>
+   
     
     <main role="main">
       {{ content_for_layout }} 
     </main>
+
+
+   
   </body>
+ 
 </html>
+

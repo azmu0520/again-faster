@@ -1,14 +1,20 @@
 {{ 'style.opener.css' | asset_url | stylesheet_tag }}
+
+<script>
+  console.log({{collections  }});
+</script>
+
 <div class="opener__wrap">
   <div class="opener__content">
-    <h1 class="content__title">Team barbell</h1>
+    <h1 class="content__title">{{section.settings.page_title | default:"Team barbell"}}</h1>
 
     <p class="content__text">
-      Team Barbell was to design a piece of equipment that matches the
-      performance and quality of other elite level competition bars.
+      {{section.settings.page_subtitle | default:"Team Barbell was to design a piece of equipment that matches the
+      performance and quality of other elite level competition bars."}}
+     
     </p>
     <div class="content__cta">
-      Explore
+      {{section.settings.page_cta | default:"Explore"}}
       <img
         src="{{ 'icons.arrow.svg' | asset_url }}"
         alt="arrow"
@@ -19,4 +25,27 @@
 </div>
 
 
+{% schema %}
+{
+  "name":"Main Page",
+  "settings": [
+   {
+     "type":"text",
+     "label":"Main Page Title", 
+     "id":"page_title"
+   },
+   {
+    "type":"text",
+    "label":"Main Page SubTitle", 
+    "id":"page_subtitle"
+   },
+   {
+    "type":"text",
+    "label":"Main Page Cta", 
+    "id":"page_cta"
+   }
+  
+  ]
+}
+{% endschema %}
  
