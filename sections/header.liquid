@@ -1,11 +1,12 @@
 {{ 'style.header.css' | asset_url | stylesheet_tag }}
 
 <nav class="header__nav">
-    <img src="{{section.settings.header_logo.src | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo" />
+
+    <img src="{{section.settings.logo.src | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo custom-logo-width" />
     <ul class="nav__links">
      {% for link in linklists.main-menu.links %}
        <li class="nav__link">
-        <a href="{{ link.url }}">{{ link.title }}</a>
+        <a href="{{link.url }}">{{ link.title }}</a>
        </li>
      {% endfor %}
     </ul>
@@ -17,10 +18,25 @@
 </nav>
 
 
+
   {% schema %}
 {
     "name":"Header",
     "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 250,
+      "step": 10,
+      "default": 100,
+      "label": "Custom logo width"
+    },
     {
         "type":"image_picker",
         "id":"header_logo",
@@ -29,3 +45,9 @@
     ]
 }
 {% endschema %}  
+
+<style>
+  .custom-logo-width{
+    width: {{ section.settings.logo_width }}px;
+  };
+</style>
