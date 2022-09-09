@@ -1,16 +1,13 @@
 {{ 'style.header.css' | asset_url | stylesheet_tag }}
-<style>
-  .heading-logo {
-      max-width: {{section.settings.logo_width}}px !important;
-  };
-</style>
+
 <nav class="header__nav">
-    <img src="{{section.settings.header_logo.src | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo heading-logo"/>
+    <img src="{{section.settings.logo.src | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo custom-logo-width"/>
     <ul class="nav__links">
         {% for link in linklists.main-menu.links %}
             <li class="nav__link">
-                <a href="{{ link.url }}">{{ link.title }}</a>
+                <a href="{{link.url }}">{{ link.title }}</a>
             </li>
+            <li>a</li>
         {% endfor %}
     </ul>
     <div class="nav__icons">
@@ -28,8 +25,8 @@
     "settings": [
         {
             "type": "image_picker",
-            "id": "header_logo",
-            "label": "Header Logo"
+            "id": "logo",
+            "label": "HeaderLogo"
         }, {
             "type": "range",
             "id": "logo_width",
@@ -42,9 +39,9 @@
             "type": "link_list",
             "id": "menu",
             "default": "main-menu",
-            "label": "Menu"
+            "label": "Menu  Link"
         }
     ]
 }
 
-{% endschema %}
+{% endschema %} 
