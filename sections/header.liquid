@@ -1,31 +1,50 @@
 {{ 'style.header.css' | asset_url | stylesheet_tag }}
-
+<style>
+  .heading-logo {
+      max-width: {{section.settings.logo_width}}px !important;
+  };
+</style>
 <nav class="header__nav">
-    <img src="{{section.settings.header_logo.src | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo" />
+    <img src="{{section.settings.header_logo.src | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo heading-logo"/>
     <ul class="nav__links">
-     {% for link in linklists.main-menu.links %}
-       <li class="nav__link">
-        <a href="{{ link.url }}">{{ link.title }}</a>
-       </li>
-     {% endfor %}
+        {% for link in linklists.main-menu.links %}
+            <li class="nav__link">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+        {% endfor %}
     </ul>
     <div class="nav__icons">
-      <img src="{{'icons.header.search.svg' | asset_url}}" alt="icons.header.search">
-      <img src="{{'icons.header.user.svg' | asset_url}}" alt="icons.header.user">
-      <img src="{{'icons.header.cart.svg' | asset_url}}" alt="icons.header.cart">
+        <img src="{{'icons.header.search.svg' | asset_url}}" alt="icons.header.search">
+        <img src="{{'icons.header.user.svg' | asset_url}}" alt="icons.header.user">
+        <img src="{{'icons.header.cart.svg' | asset_url}}" alt="icons.header.cart">
     </div>
 </nav>
 
 
-  {% schema %}
+{% schema %}
+
 {
-    "name":"Header",
+    "name": "Header",
     "settings": [
-    {
-        "type":"image_picker",
-        "id":"header_logo",
-        "label":"Header Logo"
-    }
+        {
+            "type": "image_picker",
+            "id": "header_logo",
+            "label": "Header Logo"
+        }, {
+            "type": "range",
+            "id": "logo_width",
+            "min": 200,
+            "max": 300,
+            "step": 10,
+            "default": 230,
+            "label": "Logo width"
+        }, {
+            "type": "link_list",
+            "id": "menu",
+            "default": "main-menu",
+            "label": "Menu"
+        }
     ]
 }
-{% endschema %}  
+
+{% endschema %}

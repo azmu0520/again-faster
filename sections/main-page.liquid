@@ -1,49 +1,48 @@
 {{ 'style.opener.css' | asset_url | stylesheet_tag }}
 
- 
 
 <div class="opener__wrap">
-  <div class="opener__content">
-    <h1 class="content__title">{{section.settings.page_title | default:"Team barbell"}}</h1>
+    <div class="opener__content">
+        <h1 class="content__title">{{section.settings.page_title | default:"Team barbell"}}</h1>
 
-    <p class="content__text">
-      {{section.settings.page_subtitle | default:"Team Barbell was to design a piece of equipment that matches the
+        <p class="content__text">
+            {{section.settings.page_subtitle | default:"Team Barbell was to design a piece of equipment that matches the
       performance and quality of other elite level competition bars."}}
-     
-    </p>
-    <div class="content__cta">
-      {{section.settings.page_cta | default:"Explore"}}
-      <img
-        src="{{ 'icons.arrow.svg' | asset_url }}"
-        alt="arrow"
-        class="cta__icon"
-      />
+
+        </p>
+        <div class="content__cta">
+            <a href="{{ block.settings.cta_link | default: "#" }}">
+                {{section.settings.page_cta | default:"Explore"}}
+            </a>
+            <img src="{{ 'icons.arrow.svg' | asset_url }}" alt="arrow" class="cta__icon"/>
+        </div>
     </div>
-  </div>
 </div>
 
 
 {% schema %}
+
 {
-  "name":"Main Page",
-  "settings": [
-   {
-     "type":"text",
-     "label":"Main Page Title", 
-     "id":"page_title"
-   },
-   {
-    "type":"text",
-    "label":"Main Page SubTitle", 
-    "id":"page_subtitle"
-   },
-   {
-    "type":"text",
-    "label":"Main Page Cta", 
-    "id":"page_cta"
-   }
-  
-  ]
+    "name": "Main Page",
+    "settings": [
+        {
+            "type": "text",
+            "label": "Banner Title",
+            "id": "page_title"
+        }, {
+            "type": "text",
+            "label": "Banner Text",
+            "id": "page_subtitle"
+        }, {
+            "type": "text",
+            "id": "page_cta",
+            "label": "Button Text"
+        }, {
+            "type": "url",
+            "id": "cta_link",
+            "label": "Button Link"
+        }
+    ]
 }
-{% endschema %}
- 
+
+{% endschema %} 
