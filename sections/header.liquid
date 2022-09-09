@@ -1,53 +1,57 @@
 {{ 'style.header.css' | asset_url | stylesheet_tag }}
 
 <nav class="header__nav">
-
-    <img src="{{section.settings.logo.src | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo custom-logo-width" />
+    {{ section.settings.logo | image_url: width: section.settings.width | image_tag:
+    class: 'header__heading-logo',
+   
+    width: section.settings.logo_width,
+    alt: logo_alt
+  }}
+    <!-- <img src="{{section.settings.logo.src | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo custom-logo-width"/> -->
     <ul class="nav__links">
-     {% for link in linklists.main-menu.links %}
-       <li class="nav__link">
-        <a href="{{link.url }}">{{ link.title }}</a>
-       </li>
-     {% endfor %}
+        {% for link in linklists.main-menu.links %}
+            <li class="nav__link">
+                <a href="{{link.url }}">{{ link.title }}</a>
+            </li>
+        {% endfor %}
     </ul>
     <div class="nav__icons">
-      <img src="{{'icons.header.search.svg' | asset_url}}" alt="icons.header.search">
-      <img src="{{'icons.header.user.svg' | asset_url}}" alt="icons.header.user">
-      <img src="{{'icons.header.cart.svg' | asset_url}}" alt="icons.header.cart">
+        <img src="{{'icons.header.search.svg' | asset_url}}" alt="icons.header.search">
+        <img src="{{'icons.header.user.svg' | asset_url}}" alt="icons.header.user">
+        <img src="{{'icons.header.cart.svg' | asset_url}}" alt="icons.header.cart">
     </div>
 </nav>
 
 
+{% schema %}
 
-  {% schema %}
 {
-    "name":"Header",
+    "name": "Header",
     "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo Image"
-    },
-    {
-      "type": "range",
-      "id": "logo_width",
-      "min": 50,
-      "max": 250,
-      "step": 10,
-      "default": 100,
-      "label": "Custom logo width"
-    },
-    {
-        "type":"image_picker",
-        "id":"header_logo",
-        "label":"Header Logo"
-    }
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo Image"
+        }, {
+            "type": "range",
+            "id": "logo_width",
+            "min": 220,
+            "max": 300,
+            "step": 10,
+            "default": 230,
+            "label": "Custom logo width"
+        }, {
+            "type": "image_picker",
+            "id": "header_logo",
+            "label": "Header Logo"
+        }
     ]
 }
-{% endschema %}  
+
+{% endschema %}
 
 <style>
-  .custom-logo-width{
-    width: {{ section.settings.logo_width }}px;
-  };
+    .custom-logo-width {
+        width: {{section.settings.logo_width}}px;
+    };
 </style>
