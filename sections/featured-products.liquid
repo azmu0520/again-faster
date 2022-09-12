@@ -20,7 +20,12 @@
 
     <h1 class="swiper-slide">ad</h1>
   </div>
+  {%- if section.settings.slider_visual == 'dots' -%}
+  <div class="swiper-scrollbar"></div>
+  {% endif %}
+  {%- if section.settings.slider_visual == 'pagination' -%}
   <div class="swiper-pagination"></div>
+  {% endif %}
 </div>
 
 
@@ -29,8 +34,37 @@
 <script>
   const swiper = new Swiper('.swiper1', {
     slidesPerView: 4,
-    pagination: {
-          el: ".swiper-pagination",
+    scrollbar: {
+          el: ".swiper-scrollbar",
         },
+    pagination: {
+      el: ".swiper-pagination",
+    },
   });
 </script>
+
+
+{% schema %}
+{
+  "name":"Slider",
+  "settings": [
+  {
+    "type": "select",
+    "id": "slider_visual",
+    "options": [
+      {
+        "value": "pagination",
+        "label": "Dot"
+      },
+       
+      {
+        "value": "scroll",
+        "label": "Scroll"
+      }
+    ],
+    "default": "scroll",
+    "label": "Scroll Type"
+  }
+  ]
+}
+{% endschema %}
