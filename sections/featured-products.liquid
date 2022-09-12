@@ -1,7 +1,4 @@
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-/>
+<link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
@@ -23,7 +20,12 @@
 
     <h1 class="swiper-slide">ad</h1>
   </div>
+  {%- if section.settings.slider_visual == 'dots' -%}
   <div class="swiper-scrollbar"></div>
+  {% endif %}
+  {%- if section.settings.slider_visual == 'pagination' -%}
+  <div class="swiper-pagination"></div>
+  {% endif %}
 </div>
 
 
@@ -31,11 +33,38 @@
 
 <script>
   const swiper = new Swiper('.swiper1', {
-    // If we need pagination
     slidesPerView: 4,
     scrollbar: {
           el: ".swiper-scrollbar",
-          // hide: true,
         },
+    pagination: {
+      el: ".swiper-pagination",
+    },
   });
 </script>
+
+
+{% schema %}
+{
+  "name":"Slider",
+  "settings": [
+  {
+    "type": "select",
+    "id": "slider_visual",
+    "options": [
+      {
+        "value": "pagination",
+        "label": "Dot"
+      },
+       
+      {
+        "value": "scroll",
+        "label": "Scroll"
+      }
+    ],
+    "default": "scroll",
+    "label": "Scroll Type"
+  }
+  ]
+}
+{% endschema %}

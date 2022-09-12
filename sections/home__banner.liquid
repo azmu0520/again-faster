@@ -1,9 +1,64 @@
 {{'style.home-banner.css' | asset_url | stylesheet_tag }}
 
 <div class="banner__wrapper">
-    <img src="{{'image.homebanner-main.jpg' |  asset_url }}" alt="homebanner" class="banner__main__img">
-    <div class="banner__sidebar">
-        <img src="{{'image.homebanner.jpg' |  asset_url }}" alt="sidebar__image" class="sidebar__image">
+    <div class="container">
+
+        <div class="main__imag__wrap">
+            <img src="{{section.settings.main_image | img_url:"827x" }}" alt="homebanner" class="banner__main__img">
+        </div>
+        <div class="banner__sidebar">
+            <img src="{{'image.homebanner.jpg' | asset_url }}" alt="sidebar__image" class="sidebar__image">
+
+            <h3 class="sidebar__subtitle">
+                {{section.settings.sidebar_subtitle | default:"Best seller"}}
+            </h3>
+            <h2 class="sidebar__title">
+                {{section.settings.sidebar_title | default:"TRULY, AN ALL IN ONE BARBELL"}}
+            </h2>
+            <span class="sidebar__text">
+                {{section.settings.sidebar_text | default:"Design that matches the performance and quality of other elite level competition bars"}}
+            </span>
+            <div class="sidebar__cta">
+                <a href="{{section.settings.sidebar_cta_link | default: ""}}">
+                    {{section.settings.sidebar_cta_text | default: "Shop weights" }}
+                </a>
+            </div>
+        </div>
     </div>
 
 </div>
+
+
+{% schema %}
+{
+    "name":"Banner",
+    "settings": [
+        {
+            "type":"image_picker",
+            "id":"main_image",
+            "label":"Main Image"
+        }, {
+            "type": "text",
+            "label": "Sidebar Sub-Title",
+            "id": "sidebar_subtitle"
+        }, {
+            "type": "text",
+            "label": "Sidebar Title",
+            "id": "sidebar_title"
+        }, {
+            "type": "text",
+            "label": "Sidebar Text",
+            "id": "sidebar_text"
+        }, {
+            "type": "text",
+            "label": "Sidebar Cta Text",
+            "id": "sidebar_cta_text"
+        } , {
+            "type": "link",
+            "label": "Sidebar Cta Link",
+            "id": "sidebar_cta_link"
+        }
+
+    ]
+}
+{% endschema %}

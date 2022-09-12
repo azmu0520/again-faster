@@ -1,0 +1,38 @@
+{{ 'style.footer.css' | asset_url | stylesheet_tag }}
+
+<footer>
+<img src="{{'footer.logo.png' | asset_url }}" alt="" class="footer-link">
+<div class="newsletter">
+    <h3 class="newsletter__title">Newsletter</h3>
+    <div class="newsletter__input__wrap">
+        <input type="text" class="newsletter__input" placeholder="Enter your email">
+        <img src="{{'arrow.svg' | asset_url }}" alt="arrow">
+    </div>
+   <div class="footer__icons">
+        <img src="{{'facebook.svg' | asset_url }}" alt="facebook">
+        <img src="{{'instagram.svg' | asset_url }}" alt="instagram">
+        <img src="{{'mail.svg' | asset_url }}" alt="mail">  
+   </div>
+</div>
+<ul class="footer__links">
+    <li class="footer__link-header">Again faster</li>
+    <li class="footer__link">About Us</li>
+    <li class="footer__link">Blog</li>
+    <li class="footer__link">Gift Cards</li>
+    <li class="footer__link">Military/LEO Discount</li>
+    <li class="footer__link">Financing</li>
+    <li class="footer__link">Retail Store</li>
+</ul>
+<ul class="footer__links">
+    <li class="footer__link-header">Get Help</li>
+    <li class="footer__link">Introductions</li>
+    <li class="footer__link">Shipping</li>
+    <li class="footer__link">Returns and Warranty</li>
+    <li class="footer__link">Contact Us</li>
+    <li class="footer__link">Shop in Store</li>
+  
+</ul>
+</footer>
+
+
+
