@@ -19,7 +19,7 @@
                 {{section.settings.sidebar_text | default:"Design that matches the performance and quality of other elite level competition bars"}}
             </span>
             <div class="sidebar__cta">
-                <a href="{{section.settings.sidebar_cta_link | default: ""}}">
+                <a href="{{section.settings.sidebar_cta_link | default: "#"}}">
                     {{section.settings.sidebar_cta_text | default: "Shop weights" }}
                 </a>
             </div>
@@ -54,7 +54,7 @@
             "label": "Sidebar Cta Text",
             "id": "sidebar_cta_text"
         } , {
-            "type": "link",
+            "type": "url",
             "label": "Sidebar Cta Link",
             "id": "sidebar_cta_link"
         }

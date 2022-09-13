@@ -2,23 +2,27 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-<script></script>
-
 {{ 'style.featured-products.css' | asset_url | stylesheet_tag }}
 
 <div class="swiper swiper1">
   <div class="swiper-wrapper">
     {% for product in collections %}
-    
-    <div class="swiper-slide collection-wrap">
-      <div class="image__wrapp">
-        <img src="{{product.image.src | img_url: 'medium'}}" alt="lelel" class="slide__img">
+      <div class="swiper-slide collection-wrap">
+        <div class="image__wrapp">
+          <img src="{{product.image.src | img_url: 'medium'}}" alt="lelel" class="slide__img">
+        </div>
+        <h1 class="slide__title">{{product.title}}</h1>
       </div>
-      <h1 class="slide__title">{{product.title}}</h1>
-    </div>
+    {% endfor %}
+    {% for blog in section.blocks %}
+      <div class="swiper-slide collection-wrap">
+        <div class="image__wrapp">
+          <img src="{{blog.settings.image.src | img_url: 'medium'}}" alt="lelel" class="slide__img">
+        </div>
+        <h1 class="slide__title">{{blog.settings.heading}}</h1>
+      </div>
     {% endfor %}
 
-    <h1 class="swiper-slide">ad</h1>
   </div>
   {%- if section.settings.slider_visual == 'dots' -%}
   <div class="swiper-scrollbar"></div>
@@ -48,23 +52,44 @@
 {
   "name":"Slider",
   "settings": [
+            {
+              "type": "select",
+              "id": "slider_visual",
+              "options": [
+                {
+                  "value": "pagination",
+                  "label": "Dot"
+                },
+                
+                {
+                  "value": "scroll",
+                  "label": "Scroll"
+                }
+              ],
+              "default": "scroll",
+              "label": "Scroll Type"
+            }
+  ],
+  "blocks": [
   {
-    "type": "select",
-    "id": "slider_visual",
-    "options": [
-      {
-        "value": "pagination",
-        "label": "Dot"
-      },
-       
-      {
-        "value": "scroll",
-        "label": "Scroll"
-      }
-    ],
-    "default": "scroll",
-    "label": "Scroll Type"
+    "type":"slide",
+    "name":"Slides",
+    "limit":5,
+    "settings": [
+                    {
+                      "type": "image_picker",
+                      "id": "image",
+                      "label": "Slide Image"
+                    },
+                    {
+                      "type": "text",
+                      "id": "heading",
+                      "default": "Image title",
+                      "label": "Image title"
+                    }
+              ]
   }
+  
   ]
 }
 {% endschema %}
