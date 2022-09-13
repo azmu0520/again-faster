@@ -1,14 +1,14 @@
 {{ 'style.arrivals.css' | asset_url | stylesheet_tag }}
 
-<div class='arrival__wrap'>
-  <h2 class='arrival__title'>
-    {{ section.settings.title }}
-  </h2>
-  <div class='arrival__cta'>
-    <a href='{{section.settings.cta__url}}'>
-      {{ section.settings.cta__title }}
-    </a>
-  </div>
+<div class="arrival__wrap">
+    <h2 class="arrival__title">
+        {{ section.settings.title }}
+    </h2>
+    <div class="arrival__cta">
+        <a href='{{section.settings.cta__url}}'>
+            {{ section.settings.cta__title }}
+        </a>
+    </div>
 </div>
 
 <style>
@@ -23,29 +23,28 @@
 </style>
 
 {% schema %}
+
 {
-  "name": "Arrivals",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "main_image",
-      "label": "Main Image"
-    },
-    {
-      "type": "text",
-      "label": "Title",
-      "id": "title"
-    },
-    {
-      "type": "text",
-      "label": "Cta Title",
-      "id": "cta__title"
-    },
-    {
-      "type": "url",
-      "label": "Cta Url Title",
-      "id": "cta__url"
-    }
-  ]
+    "name": "Arrivals",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "main_image",
+            "label": "Main Image"
+        }, {
+            "type": "text",
+            "label": "Title",
+            "id": "title"
+        }, {
+            "type": "text",
+            "label": "Cta Title",
+            "id": "cta__title"
+        }, {
+            "type": "url",
+            "label": "Cta Url Title",
+            "id": "cta__url"
+        }
+    ]
 }
+
 {% endschema %}

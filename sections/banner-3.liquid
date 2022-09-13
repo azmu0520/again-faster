@@ -1,37 +1,34 @@
 {{ 'style.banner-3.css' | asset_url | stylesheet_tag }};
 
-<div class='banner-3-wrapper'>
-  <img
-    src='{{section.settings.main_image |  img_url: '720x'}}'
-    alt='banner-3-wrapper'
-    class='banner-3-img'
-  >
-  <div class='banner-footer'>
-    <div class='banner-3-title'>We believe in training with intention.</div>
-    <div class='banner-3-content'>
-      <span
-        >Since 2006, Again Faster has produced top-quality gear for commercial
-        gyms, CrossFit boxes, weekend warriors, and everyday athletes. But we’re
-        also redefining what customers expect from a fitness company. We offer
-        expert advice and inspiring stories of fitness and beyond to share with
-        your friends.
-      </span>
-      <span class='about-us'
-        >About us <img src='{{'arrow.svg' | asset_url }}' alt='arrow'>
-      </span>
+<div class="banner-3-wrapper">
+    <img src='{{section.settings.main_image | img_url: '720x'}}' alt="banner-3-wrapper" class="banner-3-img">
+    <div class="banner-footer">
+        <div class="banner-3-title">We believe in training with intention.</div>
+        <div class="banner-3-content">
+            <span>Since 2006, Again Faster has produced top-quality gear for commercial
+                        gyms, CrossFit boxes, weekend warriors, and everyday athletes. But we’re
+                        also redefining what customers expect from a fitness company. We offer
+                        expert advice and inspiring stories of fitness and beyond to share with
+                        your friends.
+            </span>
+            <span class="about-us">About us
+                <img src='{{'arrow.svg' | asset_url }}' alt="arrow">
+            </span>
+        </div>
     </div>
-  </div>
 </div>
 
 {% schema %}
+
 {
-  "name": "Banner 3",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "main_image",
-      "label": "Main Image"
-    }
-  ]
+    "name": "Banner 3",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "main_image",
+            "label": "Main Image"
+        }
+    ]
 }
+
 {% endschema %}
