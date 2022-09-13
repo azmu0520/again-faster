@@ -1,0 +1,55 @@
+{{ 'style.banner-2.css' | asset_url | stylesheet_tag }}
+
+<style>
+    .banner-2__wrapper{
+        background:url({{section.settings.main_image | img_url:"1440x"}}) ;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<div class="banner-2__wrapper">
+
+    <div class="content_wrap">
+        <h2 class="banner__title">{{section.settings.title}} </h2>
+        <p class="banner__text"> {{section.settings.text}} 
+        </p>
+        <div class="banner__ccta">
+            <a href="{{section.settings.cta_link}}">
+               {{section.settings.cta_text}}  
+            </a>
+            <img src="{{'icons.arrow.svg' | asset_url }}" alt="arrow" class="cta--arrow">
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name":"Banner",
+    "settings": [
+        {
+            "type":"image_picker",
+            "id":"main_image",
+            "label":"Main Image"
+        }, {
+            "type": "text",
+            "label": "Sidebar Title",
+            "id": "title"
+        }, {
+            "type": "text",
+            "label": "Sidebar Text",
+            "id": "text"
+        }, {
+            "type": "text",
+            "label": "Sidebar Cta Text",
+            "id": "cta_text"
+        } , {
+            "type": "url",
+            "label": "Sidebar Cta Link",
+            "id": "cta_link"
+        }
+
+    ]
+}
+{% endschema %}

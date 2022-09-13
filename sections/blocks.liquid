@@ -1,0 +1,74 @@
+{{ 'style.blocks.css' | asset_url | stylesheet_tag }}
+
+<div class="blocks__wrapper">
+    <div class="block-wrap">
+        <img src="{{section.settings.blog_image-1.src | img_url: '620x'}}" alt="block__image" class="block__image">
+        <h3 class="block__title">
+            {{section.settings.blog_title-1}}
+        </h3>
+        <div class="blocks__cta">
+            <a href="{{section.settings.blog_link-1}}">
+                {{section.settings.blog_cta-1}}
+            </a>
+        </div>
+    </div>
+    <div class="block-wrap">
+        <img src="{{section.settings.blog_image-2.src | img_url: '620x'}}" alt="block__image" class="block__image">
+        <h3 class="block__title">
+            {{section.settings.blog_title-2}}
+        </h3>
+        <div class="blocks__cta">
+            <a href="{{section.settings.blog_link-2}}">
+                {{section.settings.blog_cta-2}}
+            </a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"Blocks Section",
+    "settings": [
+                {
+                    "type":"image_picker",
+                    "id":"blog_image-1",
+                    "label":"Blog-1 Image"
+                }, 
+                {
+                    "type":"image_picker",
+                    "id":"blog_image-2",
+                    "label":"Blog-2 Image"
+                }, 
+                {
+                    "type": "text",
+                    "label": "Blog-1 Title",
+                    "id": "blog_title-1"
+                }, 
+                {
+                    "type": "text",
+                    "label": "Blog-1 Cta Title",
+                    "id": "blog_cta-1"
+                }, 
+                {
+                    "type": "url",
+                    "label": "Blog-1 Link",
+                    "id": "blog_link-1"
+                }, 
+                {
+                    "type": "text",
+                    "label": "Blog-2 Title",
+                    "id": "blog_title-2"
+                },
+                {
+                    "type": "text",
+                    "label": "Blog-2 Cta Title",
+                    "id": "blog_cta-2"
+                }, 
+                {
+                    "type": "url",
+                    "label": "Blog-2 Link",
+                    "id": "blog_link-2"
+                }
+    ]
+}
+{% endschema %}
