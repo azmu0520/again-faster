@@ -1,9 +1,5 @@
 {{ 'style.header.css' | asset_url | stylesheet_tag }}
-<style>
-  .heading-logo {
-      max-width: {{section.settings.logo_width}}px !important;
-  };
-</style>
+
 <nav class="header__nav">
     <img src="{{section.settings.logo | img_url: 'medium'}}" alt="{{section.settings.label}}" class="nav__logo heading-logo"/>
     <ul class="nav__links">
@@ -48,3 +44,9 @@
 }
 
 {% endschema %} 
+
+<style>
+    .heading-logo {
+        max-width: {{section.settings.logo_width}}px !important;
+    };
+  </style>
