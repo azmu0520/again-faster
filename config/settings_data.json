@@ -1,6 +1,124 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "announcement": {
+        "type": "announcement",
+        "blocks": {
+          "announcement-0": {
+            "type": "announcement",
+            "settings": {
+              "text": "22% OFF Sitewide until 9\/12",
+              "color_scheme": "main",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "announcement-0"
+        ],
+        "settings": {
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/primary_no_text_6fe173d7-a38e-4751-af10-d44bc320c8c7.png",
+          "logo_width": 230,
+          "menu": "main-menu"
+        }
+      },
+      "main-page": {
+        "type": "main-page",
+        "settings": {
+          "page_title": "",
+          "page_subtitle": "",
+          "page_cta": "",
+          "cta_link": ""
+        }
+      },
+      "featured-products": {
+        "type": "featured-products",
+        "settings": {
+          "slider_visual": "scroll"
+        }
+      },
+      "home__banner": {
+        "type": "home__banner",
+        "settings": {
+          "sidebar_subtitle": "",
+          "sidebar_title": "",
+          "sidebar_text": "",
+          "sidebar_cta_text": "",
+          "sidebar_cta_link": ""
+        }
+      },
+      "banner-2": {
+        "type": "banner-2",
+        "settings": {
+          "title": "",
+          "text": "",
+          "cta_text": "",
+          "cta_link": ""
+        }
+      },
+      "blocks": {
+        "type": "blocks",
+        "settings": {
+          "blog_title-1": "",
+          "blog_cta-1": "",
+          "blog_link-1": "",
+          "blog_title-2": "",
+          "blog_cta-2": "",
+          "blog_link-2": ""
+        }
+      },
+      "arrivals": {
+        "type": "arrivals",
+        "settings": {
+          "title": "",
+          "cta__title": "",
+          "cta__url": ""
+        }
+      },
+      "best-seller": {
+        "type": "best-seller",
+        "settings": {
+          "opener_suptitle": "",
+          "opener_title": "",
+          "opener_text": "",
+          "opener_cta": "",
+          "product_badge": "",
+          "product_title": "",
+          "product_badge2": "",
+          "product_title2": "",
+          "product_badge3": "",
+          "product_title3": "",
+          "product_badge4": "",
+          "product_title4": ""
+        }
+      },
+      "customer-comment": {
+        "type": "customer-comment",
+        "settings": {
+        }
+      },
+      "banner-3": {
+        "type": "banner-3",
+        "settings": {
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
-    "Default": { }
+    "Default": {
+    }
   }
 }
