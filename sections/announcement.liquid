@@ -3,7 +3,7 @@
 
 {%- for block in section.blocks -%}
     <div class="announcement bar-{{ block.settings.color_scheme }} " role="region" aria-label="{{ 'sections.header.announcement' }}">
-        <a href="{{ block.settings.link | default: '#'}}" class="announcement__link">
+        <a href="{{ block.settings.link}}" class="announcement__link">
             <p class="announcement-bar__message h5">
                 {{ block.settings.text | escape }}
             </p>
@@ -16,8 +16,8 @@
 
 {
     "name": "Announcement Bar",
-    "tag":"section",
-    "max_blocks":3,
+    "tag": "section",
+    "max_blocks": 3,
     "max_blocks": 12,
     "blocks": [
         {
@@ -32,7 +32,7 @@
                 }, {
                     "type": "select",
                     "id": "color_scheme",
-                    "options": [ 
+                    "options": [
                         {
                             "value": "main",
                             "label": "Main Bg Color"

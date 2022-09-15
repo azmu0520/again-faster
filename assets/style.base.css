@@ -14,23 +14,7 @@
     --color-functional-green: #6FCF97;
 }
 
-@font-face {
-    font-family: 'OpenSans-Regular';
-    src: url({{'OpenSans-Regular.woff' | asset_url  }}) format('woff');
-}
-@font-face {
-    font-family: 'OpenSans-Bold';
-    src: url({{'OpenSans-Bold.woff' | asset_url  }}) format('woff');
-}
-@font-face {
-    font-family: 'OpenSans-SemiBold';
-    src: url({{'OpenSans-SemiBold.woff' | asset_url  }}) format('woff');
-}
-@font-face {
-    font-family: 'Oswald-Light';
-    src: url({{'Oswald-Light.ttf' | asset_url  }}) format('ttf');
 
-}
 
 html {
     font-size: 62.5%;

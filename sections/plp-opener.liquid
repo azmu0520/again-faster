@@ -4,17 +4,32 @@
 
         <div class="opener__content">
             <div class="content__ibrow">
-                {{collection.metafields.accentuate.test_ibrow}}     
+                {{collection.metafields.accentuate.test_ibrow}}
             </div>
-            <h2 class="opener__headline">highest quality equipment for your strength training</h2>
-        <div class="opener__cta">
-            <a href="">Consultation</a>
-            <img src="{{'icons.arrow.svg' | asset_url }}" alt="" class="cta__icon">
+            <h2 class="opener__headline">
+                {{collection.metafields.accentuate.plp_headline}}
+            </h2>
+            <div class="opener__cta">
+                <a href="{{collection.metafields.accentuate.plp_opener_cta_link}}" class="h5">
+                    {{collection.metafields.accentuate.plp_opener_cta_text}}
+                </a>
+                <img src="{{'arrow.svg' | asset_url }}" alt="" class="cta__icon">
+            </div>
+        </div>
+        <div class="opener__images">
+            <img src="{{collection.metafields.accentuate.plp_opener_main_image[0].src }}" alt="" class="openr__main__image">
+            <img src="{{collection.metafields.accentuate.plp_opener_child_image[0].src }}" alt="" class="openr__side__image">
         </div>
     </div>
-    <div class="opener__images">
-        <img src="{{'image.homebanner.jpg' | asset_url }}" alt="" class="openr__main__image">
-        <img src="{{'image.homebanner.jpg' | asset_url }}" alt="" class="openr__side__image">
+    <div class="collections_wrap">
+
+        {% assign  collectionList = collection.metafields.accentuate.collection_list | split: "|" %}
+        {% for collection in collectionList %}
+            <div class="collection">
+                <img alt="alt" class="collection__img" src="{{collections[collection].image.src | img_url: 'medium' }}">
+                <h5>{{collections[collection].title}}</h5>
+            </div>
+        {% endfor %}
+
     </div>
-</div>
-</div>
+</div> 
