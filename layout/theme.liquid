@@ -11,10 +11,33 @@
         {{
       content_for_header
     }}
+        <style>
+        @font-face {
+        font-family: 'OpenSans-Regular';
+        src: url({{'OpenSans-Regular.woff' | asset_url  }}) format('woff');
+}
+        @font-face {
+            font-family: 'OpenSans-Bold';
+            src: url({{'OpenSans-Bold.woff' | asset_url  }}) format('woff');
+        }
+        @font-face {
+            font-family: 'OpenSans-SemiBold';
+            src: url({{'OpenSans-SemiBold.woff' | asset_url  }}) format('woff');
+        }
+        @font-face {
+            font-family: 'Oswald-Light';
+            src: url({{'Oswald-Light.ttf' | asset_url  }}) format('ttf');
+
+            }
+    </style>
         <!-- Header hook for plugins -->
         {{ 'style.base.css' | asset_url | stylesheet_tag }}
         {{ 'application.js' | asset_url | script_tag }}
+
     </head>
+    <style>
+
+    </style>
     <body>
         {% section 'announcement' %}
         {% section 'header' %}
