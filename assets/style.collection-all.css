@@ -1,0 +1,83 @@
+
+.collection__all__container{
+    display: flex;
+    width: 100%;
+    margin-top: 92px;
+}
+
+.collection__all__wrap{
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    width: 100%;
+    margin: 80px auto;
+}
+
+.collection__title{
+    text-align: center;
+    font-weight: bold;
+}
+
+.collection__filter{
+    display: flex;
+    align-items: center;
+    height: 24px;
+    list-style: none;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+    color: #C4C4C4;
+   margin: 30px auto 40px auto;
+}
+.collection__filter span , .collection__filter li{
+    margin-right: 4px;
+}
+.collection__filter span:last-child{
+   display: none;
+}
+
+.image__wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 443px;
+    max-height: 554px;
+    position: relative;
+    background-color: #f1f1f1;
+    margin-bottom: 8px;
+}
+.product__badge-best-seller{
+    position: absolute;
+    top: 8px;
+    left: 8;
+}
+.product__badge-free-shipping{
+    position: absolute;
+    top: 8px;
+    left: 8;
+}
+
+.priduct__item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+.product__image{
+    width: 100%;
+}
+.products__wrap{
+    display: flex;
+     flex-wrap: wrap;
+     column-gap: 16px;
+}
+
+.stars__wrap{
+    margin: 8px 0;
+}
+
+.product__price{
+    font-family: 'Oswald';
+}
