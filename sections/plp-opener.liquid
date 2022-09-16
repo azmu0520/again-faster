@@ -21,13 +21,13 @@
             <img src="{{collection.metafields.accentuate.plp_opener_child_image[0].src }}" alt="" class="openr__side__image">
         </div>
     </div>
-    <div class="collections_wrap">
 
-        {% assign  collectionList = collection.metafields.accentuate.collection_list | split: "|" %}
+    <div class="collections_wrap">
+        {% assign  collectionList = collection.metafields.accentuate.all_collection | split: "|" %}
         {% for collection in collectionList %}
             <div class="collection">
-                <img alt="alt" class="collection__img" src="{{collections[collection].image.src | img_url: 'medium' }}">
-                <h5>{{collections[collection].title}}</h5>
+                <img alt="alt" class="collection__img" src="{{collections[collection].image.src | img_url: 'master' }}">
+                <h5 class="product__title">{{collections[collection].title | link_to: collections[collection].url}}</h5>
             </div>
         {% endfor %}
 

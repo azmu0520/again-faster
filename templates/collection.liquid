@@ -1,31 +1,42 @@
-{{ 'style.collection' | asset_url | stylesheet_tag }}
+{{ 'style.collection-all.css' | asset_url | stylesheet_tag }}
 
-{{"https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"  | script_tag}}
-{{"https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" | stylesheet_tag}}
+<script>
+    console.log({{collection.products | json}});
+</script>
+<div class="collection__all__container">
 
- 
+    <div class="collection__all__wrap">
+        <h3 class="collection__title">
+            {{collection.title}}
+        </h3>
+        <ul class="collection__filter">
+            {% for product in collection.products %}
+                <li class="filter__item">{{product.title}}</li>
+                <span>/</span>
+            {% endfor %}
+        </ul>
+        <div class="products__wrap">
+            {% for product in collection.products %}
+                <div class="priduct__item">
+                    <div class="image__wrap">
+                        <!-- <div class="product__badge-best-seller"></div>
+            <div class="product__badge-free-shipping"></div> -->
+                        <img src="{{product.images[0] | img_url: 'master' }}" alt="image" class="product__image">
+                    </div>
+                    <h5>{{product.title}}</h5>
+                    <div class="stars__wrap">
+                        <img src="{{'icon.star.svg' | asset_url }}" alt="star">
+                        <img src="{{'icon.star.svg' | asset_url }}" alt="star">
+                        <img src="{{'icon.star.svg' | asset_url }}" alt="star">
+                        <img src="{{'icon.star.svg' | asset_url }}" alt="star">
+                        <img src="{{'icon.star.svg' | asset_url }}" alt="star">
+                    </div>
+                    <h5 class="product__price">${{product.price}}.00</h5>
+                </div>
+            {% endfor %}
 
-<div >
- 
-  <h1>hello</h1>
- 
-</div>
 
-<!-- {% paginate collection.products by 2 %}
-  <h1>{{ collection.title }}</h1>
-  {% for product in collection.products %}
-    <div>
-      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-      {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-      <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-      </a>
+        </div>
     </div>
-  {% else %}
-    <p>no matches</p>
-  {% endfor %}
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
-{% endpaginate %} -->
+
+</div>

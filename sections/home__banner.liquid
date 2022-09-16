@@ -4,10 +4,10 @@
     <div class="container">
 
         <div class="main__imag__wrap">
-            <img src="{{section.settings.main_image | img_url:"827x" }}" alt="homebanner" class="banner__main__img">
+            <img src="{{section.settings.main_image |  img_url: "827x" }}" alt="homebanner" class="banner__main__img">
         </div>
         <div class="banner__sidebar">
-            <img src="{{'image.homebanner.jpg' | asset_url }}" alt="sidebar__image" class="sidebar__image">
+            <img src="{{section.settings.side_image |  img_url: "462x"  }}" alt="sidebar__image" class="sidebar__image">
 
             <h3 class="sidebar__subtitle">
                 {{section.settings.sidebar_subtitle | default:"Best seller"}}
@@ -37,7 +37,12 @@
             "type":"image_picker",
             "id":"main_image",
             "label":"Main Image"
-        }, {
+        }, 
+        {
+            "type":"image_picker",
+            "id":"side_image",
+            "label":"Side Image"
+        },{
             "type": "text",
             "label": "Sidebar Sub-Title",
             "id": "sidebar_subtitle"
