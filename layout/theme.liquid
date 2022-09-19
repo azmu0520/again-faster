@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{{ page_title }}</title>
-        <meta charset="utf-8"/>
-        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-        <meta name="description" content="{{ page_description | escape }}"/>
-        <link rel="canonical" href="{{ canonical_url }}"/>
-        <!-- <link rel="stylesheet" href="{{'style.base' | asset_url | stylesheet_tag }}.css"> -->
-        <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport"/>
-        {{
-      content_for_header
-    }}
-        <style>
-        @font-face {
-        font-family: 'OpenSans-Regular';
-        src: url({{'OpenSans-Regular.woff' | asset_url  }}) format('woff');
-                    }
-        @font-face {
-            font-family: 'OpenSans-Bold';
-            src: url({{'OpenSans-Bold.woff' | asset_url  }}) format('woff');
-        }
-        @font-face {
-            font-family: 'OpenSans-SemiBold';
-            src: url({{'OpenSans-SemiBold.woff' | asset_url  }}) format('woff');
-        }
-        @font-face {
-            font-family: 'Oswald-Light';
-            src: url({{'Oswald-Light.ttf' | asset_url  }}) format('ttf');
-
-            }
-    </style>
-        <!-- Header hook for plugins -->
-        {{ 'style.base.css' | asset_url | stylesheet_tag }}
-        {{ 'application.js' | asset_url | script_tag }}
-
-    </head>
+  <head>
+    <title>{{ page_title }}</title>
+    <meta charset='utf-8'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta name='description' content='{{ page_description | escape }}'>
+    <link rel='canonical' href='{{ canonical_url }}'>
+    <!--
+      <link rel="stylesheet" href="{{'style.base' | asset_url | stylesheet_tag }}.css">
+    -->
+    <meta
+      content='width=device-width,initial-scale=1,shrink-to-fit=no'
+      name='viewport'
+    >
+    {{ content_for_header }}
     <style>
+      @font-face {
+      font-family: 'OpenSans-Regular';
+      src: url({{'OpenSans-Regular.woff' | asset_url  }}) format('woff');
+                  }
+      @font-face {
+          font-family: 'OpenSans-Bold';
+          src: url({{'OpenSans-Bold.woff' | asset_url  }}) format('woff');
+      }
+      @font-face {
+          font-family: 'OpenSans-SemiBold';
+          src: url({{'OpenSans-SemiBold.woff' | asset_url  }}) format('woff');
+      }
+      @font-face {
+          font-family: 'Oswald-Light';
+          src: url({{'Oswald-Light.ttf' | asset_url  }}) format('ttf');
 
+          }
     </style>
-    <body>
-        {% section 'announcement' %}
-        {% section 'header' %}
+    <!-- Header hook for plugins -->
+    {{ 'style.base.css' | asset_url | stylesheet_tag }}
+    {{ 'application.js' | asset_url | script_tag }}
+    {{ 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css' | stylesheet_tag }}
+    {{ 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js' | script_tag }}
 
-        <main role="main">
-            {{ content_for_layout }}
-        </main>
-        {% section 'footer' %}
+ 
+  </head>
+  <style></style>
+  <body>
+    {% section 'announcement' %}
+    {% section 'header' %}
 
-    </body>
-
+    <main role='main'>
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+  </body>
 </html>

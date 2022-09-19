@@ -1,95 +1,73 @@
-<link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
 {{ 'style.featured-products.css' | asset_url | stylesheet_tag }}
-
-<div class="swiper swiper1">
-  <div class="swiper-wrapper">
-    {% for product in collections %}
-      <div class="swiper-slide collection-wrap">
-        <div class="image__wrapp">
-          <img src="{{product.image.src | img_url: 'medium'}}" alt="lelel" class="slide__img">
+ 
+ 
+ 
+<div class='swiper swiper1'>
+  <div class='swiper-wrapper'>
+    {% assign selected = section.settings.collection_list | first %}
+    <script>
+      console.log({{selected.handle | json}});
+    </script>
+    {% for product in collections[selected.handle].products %}
+      <div class='swiper-slide collection-wrap'>
+        <div class='image__wrapp'>
+          <img
+            src='{{product.images[0] | img_url: 'master'}}'
+            alt='lelel'
+            class='slide__img'
+          >
         </div>
-        <h1 class="slide__title">{{product.title}}</h1>
+        <h1 class='slide__title'>{{ product.title }}  <img src="{{'arrow.svg' | asset_url }}" alt="arrow" class="arrow_icon">  </h1>
       </div>
     {% endfor %}
-    {% for blog in section.blocks %}
-      <div class="swiper-slide collection-wrap">
-        <div class="image__wrapp">
-          <img src="{{blog.settings.image.src | img_url: 'medium'}}" alt="lelel" class="slide__img">
-        </div>
-        <h1 class="slide__title">{{blog.settings.heading}}</h1>
-      </div>
-    {% endfor %}
-
+    
   </div>
   {%- if section.settings.slider_visual == 'dots' -%}
-  <div class="swiper-scrollbar"></div>
+    <div class='swiper-scrollbar'></div>
   {% endif %}
   {%- if section.settings.slider_visual == 'pagination' -%}
-  <div class="swiper-pagination"></div>
+    <div class='swiper-pagination'></div>
   {% endif %}
 </div>
-
-
- 
 
 <script>
   const swiper = new Swiper('.swiper1', {
     slidesPerView: 4,
     scrollbar: {
-          el: ".swiper-scrollbar",
-        },
+      el: '.swiper-scrollbar',
+    },
     pagination: {
-      el: ".swiper-pagination",
+      el: '.swiper-pagination',
     },
   });
 </script>
 
-
 {% schema %}
 {
-  "name":"Slider",
+  "name": "Featured Products",
   "settings": [
-            {
-              "type": "select",
-              "id": "slider_visual",
-              "options": [
-                {
-                  "value": "pagination",
-                  "label": "Dot"
-                },
-                
-                {
-                  "value": "scroll",
-                  "label": "Scroll"
-                }
-              ],
-              "default": "scroll",
-              "label": "Scroll Type"
-            }
-  ],
-  "blocks": [
-  {
-    "type":"slide",
-    "name":"Slides",
-    "limit":5,
-    "settings": [
-                    {
-                      "type": "image_picker",
-                      "id": "image",
-                      "label": "Slide Image"
-                    },
-                    {
-                      "type": "text",
-                      "id": "heading",
-                      "default": "Image title",
-                      "label": "Image title"
-                    }
-              ]
-  }
-  
+    {
+      "type": "select",
+      "id": "slider_visual",
+      "options": [
+        {
+          "value": "pagination",
+          "label": "Dot"
+        },
+        {
+          "value": "scroll",
+          "label": "Scroll"
+        }
+      ],
+      "default": "scroll",
+      "label": "Scroll Type"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collection List"
+    }
   ]
+
 }
 {% endschema %}
