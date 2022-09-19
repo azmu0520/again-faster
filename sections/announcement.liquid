@@ -1,81 +1,81 @@
 {{ 'style.announcement.css' | asset_url | stylesheet_tag }}
-<link rel="stylesheet" href="{{'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css' | url }}"/>
+{{ 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css' | stylesheet_tag }}
+{{ 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js' | script_tag }}
 
-<script src="{{ 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js' }}"></script>
-
-
-<div class="swiper announcement">
-    <div class="swiper-wrapper">
-        {%- for block in section.blocks -%}
-            <div class="announcement bar-{{ block.settings.color_scheme }} swiper-slide" role="region" aria-label="{{ 'sections.header.announcement' }}">
-                <a href="{{ block.settings.link}}" class="announcement__link">
-                    <p class="announcement-bar__message h5">
-                        {{ block.settings.text | escape }}
-                    </p>
-                </a>
-            </div>
-        {%- endfor -%}
-    </div>
+<div class='swiper swiper3 announcement'>
+  <div class='swiper-wrapper'>
+    {%- for block in section.blocks -%}
+      <div
+        class='announcement bar-{{ block.settings.color_scheme }} swiper-slide'
+        role='region'
+        aria-label='{{ 'sections.header.announcement' }}'
+      >
+        <a href='{{ block.settings.link}}' class='announcement__link'>
+          <p class='announcement-bar__message h5'>
+            {{ block.settings.text | escape }}
+          </p>
+        </a>
+      </div>
+    {%- endfor -%}
+  </div>
 </div>
 
-
 <script>
-    const swiper = new Swiper('.announcement', {
+  const swiper3 = new Swiper('.swiper3', {
     loop: true,
     autoplay: {
-        delay: 4000,
+      delay: 4000,
     },
-});
+  });
 </script>
 
-
-
 {% schema %}
-
 {
-    "name": "Announcement Bar",
-    "tag": "section",
-    "max_blocks": 3,
-    "max_blocks": 12,
-    "blocks": [
+  "name": "Announcement Bar",
+  "tag": "section",
+  "max_blocks": 3,
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement Name",
+      "settings": [
         {
-            "type": "announcement",
-            "name": "Announcement Name",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "text",
-                    "default": "22% OFF Sitewide until 9/12",
-                    "label": "Text"
-                }, {
-                    "type": "select",
-                    "id": "color_scheme",
-                    "options": [
-                        {
-                            "value": "main",
-                            "label": "Main Bg Color"
-                        }, {
-                            "value": "secondary",
-                            "label": "Secondary Bg Color"
-                        }
-                    ],
-                    "default": "main",
-                    "label": "Color scheme"
-                }, {
-                    "type": "url",
-                    "id": "link",
-                    "label": "Link"
-                }
-            ]
-        }
-    ],
-    "default": {
-        "blocks": [
+          "type": "text",
+          "id": "text",
+          "default": "22% OFF Sitewide until 9/12",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "options": [
             {
-                "type": "announcement"
+              "value": "main",
+              "label": "Main Bg Color"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary Bg Color"
             }
-        ]
+          ],
+          "default": "main",
+          "label": "Color scheme"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
     }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
 }
-
-{% endschema %} 
+{% endschema %}

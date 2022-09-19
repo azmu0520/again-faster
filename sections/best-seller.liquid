@@ -1,251 +1,275 @@
-<link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet"/>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
 {{ 'style.best-seller.css' | asset_url | stylesheet_tag }}
 
-
-<div class="swiper swiper2">
-    <div class="swiper-wrapper">
-        <div class="opener-slide swiper-slide">
-           <h4 class="opener__suptitle">Best sellers</h4>
-           <h2 class="opener__title">Our favorites</h2>
-           <span class="opener__text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-             <div class="opener__cta">
-                <a href="#">
-                    Shop Best seller
-                </a>
-            </div>
-        </div>
-        <div class="product__wrap swiper-slide">
-            <div class="product__image__wrap">
-                <img src="{{section.settings.product_image |  img_url: '328x'}}" alt="product image" class="product__image">
-                <div class="image__badge">{{section.settings.product_badge}}</div>
-            </div>
-            <h2 class="product_title">{{section.settings.product_title}}</h2>
-            <div class="product__stars">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-            </div>
-            <span class="product__price">${{section.settings.product_price}}.00</span>
-        </div>
-        <div class="product__wrap swiper-slide">
-            <div class="product__image__wrap">
-                <img src="{{section.settings.product_image2 |  img_url: '328x'}}" alt="product image" class="product__image">
-                <div class="image__badge">{{section.settings.product_badge2}}</div>
-            </div>
-            <h2 class="product_title">{{section.settings.product_title2}}</h2>
-            <div class="product__stars">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-            </div>
-            <span class="product__price">${{section.settings.product_price2}}.00</span>
-        </div>
-        <div class="product__wrap swiper-slide">
-            <div class="product__image__wrap">
-                <img src="{{section.settings.product_image3 |  img_url: '328x'}}" alt="product image" class="product__image">
-                <div class="image__badge">{{section.settings.product_badge3}}</div>
-            </div>
-            <h2 class="product_title">{{section.settings.product_title3}}</h2>
-            <div class="product__stars">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-            </div>
-            <span class="product__price">${{section.settings.product_price3}}.00</span>
-        </div>
-        <div class="product__wrap swiper-slide">
-            <div class="product__image__wrap">
-                <img src="{{section.settings.product_image4 |  img_url: '328x'}}" alt="product image" class="product__image">
-                <div class="image__badge">{{section.settings.product_badge4}}</div>
-            </div>
-            <h2 class="product_title">{{section.settings.product_title4}}</h2>
-            <div class="product__stars">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-            </div>
-            <span class="product__price">${{section.settings.product_price4}}.00</span>
-        </div>
-        {%- for blog in section.blocks -%}
-            <div class="product__wrap swiper-slide">
-                <div class="product__image__wrap">
-                    <img src="{{blog.settings.product_image5 |  img_url: '328x'}}" alt="product image" class="product__image">
-                    <div class="image__badge">{{blog.settings.product_badge5}}</div>
-                </div>
-                <h2 class="product_title">{{blog.settings.product_title5}}</h2>
-                <div class="product__stars">
-                    <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                    <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                    <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                    <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                    <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star">
-                </div>
-                <span class="product__price">${{blog.settings.product_price5}}.00</span>
-            </div>
-        {%- endfor -%}
+<div class='swiper swiper2'>
+  <div class='swiper-wrapper'>
+    <div class='opener-slide swiper-slide'>
+      <h4 class='opener__suptitle'>Best sellers</h4>
+      <h2 class='opener__title'>Our favorites</h2>
+      <span class='opener__text'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </span>
+      <div class='opener__cta'>
+        <a href='#'>Shop Best seller</a>
+      </div>
     </div>
-    <div class="swiper-scrollbar"></div>
+    <div class='product__wrap swiper-slide'>
+      <div class='product__image__wrap'>
+        <img
+          src='{{section.settings.product_image |  img_url: '328x'}}'
+          alt='product image'
+          class='product__image'
+        >
+        <div class='image__badge'>{{ section.settings.product_badge }}</div>
+      </div>
+      <h2 class='product_title'>{{ section.settings.product_title }}</h2>
+      <div class='product__stars'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+      </div>
+      <span class='product__price'>
+        ${{ section.settings.product_price }}.00
+      </span>
+    </div>
+    <div class='product__wrap swiper-slide'>
+      <div class='product__image__wrap'>
+        <img
+          src='{{section.settings.product_image2 |  img_url: '328x'}}'
+          alt='product image'
+          class='product__image'
+        >
+        <div class='image__badge'>{{ section.settings.product_badge2 }}</div>
+      </div>
+      <h2 class='product_title'>{{ section.settings.product_title2 }}</h2>
+      <div class='product__stars'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+      </div>
+      <span class='product__price'>
+        ${{ section.settings.product_price2 }}.00
+      </span>
+    </div>
+    <div class='product__wrap swiper-slide'>
+      <div class='product__image__wrap'>
+        <img
+          src='{{section.settings.product_image3 |  img_url: '328x'}}'
+          alt='product image'
+          class='product__image'
+        >
+        <div class='image__badge'>{{ section.settings.product_badge3 }}</div>
+      </div>
+      <h2 class='product_title'>{{ section.settings.product_title3 }}</h2>
+      <div class='product__stars'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+      </div>
+      <span class='product__price'>
+        ${{ section.settings.product_price3 }}.00
+      </span>
+    </div>
+    <div class='product__wrap swiper-slide'>
+      <div class='product__image__wrap'>
+        <img
+          src='{{section.settings.product_image4 |  img_url: '328x'}}'
+          alt='product image'
+          class='product__image'
+        >
+        <div class='image__badge'>{{ section.settings.product_badge4 }}</div>
+      </div>
+      <h2 class='product_title'>{{ section.settings.product_title4 }}</h2>
+      <div class='product__stars'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+      </div>
+      <span class='product__price'>
+        ${{ section.settings.product_price4 }}.00
+      </span>
+    </div>
+    {%- for blog in section.blocks -%}
+      <div class='product__wrap swiper-slide'>
+        <div class='product__image__wrap'>
+          <img
+            src='{{blog.settings.product_image5 |  img_url: '328x'}}'
+            alt='product image'
+            class='product__image'
+          >
+          <div class='image__badge'>{{ blog.settings.product_badge5 }}</div>
+        </div>
+        <h2 class='product_title'>{{ blog.settings.product_title5 }}</h2>
+        <div class='product__stars'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='icon.star'>
+        </div>
+        <span class='product__price'>
+          ${{ blog.settings.product_price5 }}.00
+        </span>
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class='swiper-scrollbar'></div>
 </div>
 
 <script>
-    const swiper2 = new Swiper('.swiper2', {
-      slidesPerView: 4,
-      spaceBetween:100,
-      scrollbar: {
-            el: ".swiper-scrollbar",
-          },
-      pagination: {
-        el: ".swiper-pagination",
-      },
-    });
+  const swiper2 = new Swiper('.swiper2', {
+    slidesPerView: 4,
+    spaceBetween: 100,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  });
 </script>
 
 {% schema %}
 {
-    "name":"Best Seller Slider",
-    "settings":[
-        {
-            "type":"text",
-            "id":"opener_suptitle",
-            "label":"Opener Sup-title"
-        },
-        {
-            "type":"text",
-            "id":"opener_title",
-            "label":"Opener Title"
-        } ,
-        {
-            "type":"text",
-            "id":"opener_text",
-            "label":"Opener Text"
-        } ,
-        {
-            "type":"text",
-            "id":"opener_cta",
-            "label":"Opener Cta title"
-        } ,
-        {
-            "type":"image_picker",
-            "id":"product_image",
-            "label":"Product Image-1"
-        } ,
-        {
-            "type":"text",
-            "id":"product_badge",
-            "label":"Product Badge-1"
-        } ,
-        {
-            "type":"text",
-            "id":"product_title",
-            "label":"Product Title-1"
-        } ,
-        {
-            "type":"number",
-            "id":"product_price",
-            "label":"Product Price-1"
-        },
-        {
-            "type":"image_picker",
-            "id":"product_image2",
-            "label":"Product Image-2"
-        } ,
-        {
-            "type":"text",
-            "id":"product_badge2",
-            "label":"Product Badge-2"
-        } ,
-        {
-            "type":"text",
-            "id":"product_title2",
-            "label":"Product Title-2"
-        } ,
-        {
-            "type":"number",
-            "id":"product_price2",
-            "label":"Product Price-2"
-        },
-        {
-            "type":"image_picker",
-            "id":"product_image3",
-            "label":"Product Image-3"
-        } ,
-        {
-            "type":"text",
-            "id":"product_badge3",
-            "label":"Product Badge"
-        } ,
-        {
-            "type":"text",
-            "id":"product_title3",
-            "label":"Product Title-3"
-        } ,
-        {
-            "type":"number",
-            "id":"product_price3",
-            "label":"Product Price-3"
-        },
-        {
-            "type":"image_picker",
-            "id":"product_image4",
-            "label":"Product Image-4"
-        } ,
-        {
-            "type":"text",
-            "id":"product_badge4",
-            "label":"Product Badge-4"
-        } ,
-        {
-            "type":"text",
-            "id":"product_title4",
-            "label":"Product Title-4"
-        } ,
-        {
-            "type":"number",
-            "id":"product_price4",
-            "label":"Product Price-4"
-        }
-    ],
-    "blocks": [
+  "name": "Best Seller Slider",
+  "settings": [
     {
-      "type":"slide",
-      "name":"Slides",
-      "limit":10,
-      "settings": [
-                    {
-                        "type":"image_picker",
-                        "id":"product_image5",
-                        "label":"Product Image-5"
-                    } ,
-                    {
-                        "type":"text",
-                        "id":"product_badge5",
-                        "label":"Product Badge-5"
-                    } ,
-                    {
-                        "type":"text",
-                        "id":"product_title5",
-                        "label":"Product Title-5"
-                    } ,
-                    {
-                        "type":"number",
-                        "id":"product_price5",
-                        "label":"Product Price-5"
-                    }
-                ]
+      "type": "text",
+      "id": "opener_suptitle",
+      "label": "Opener Sup-title"
+    },
+    {
+      "type": "text",
+      "id": "opener_title",
+      "label": "Opener Title"
+    },
+    {
+      "type": "text",
+      "id": "opener_text",
+      "label": "Opener Text"
+    },
+    {
+      "type": "text",
+      "id": "opener_cta",
+      "label": "Opener Cta title"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image-1"
+    },
+    {
+      "type": "text",
+      "id": "product_badge",
+      "label": "Product Badge-1"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Product Title-1"
+    },
+    {
+      "type": "number",
+      "id": "product_price",
+      "label": "Product Price-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image2",
+      "label": "Product Image-2"
+    },
+    {
+      "type": "text",
+      "id": "product_badge2",
+      "label": "Product Badge-2"
+    },
+    {
+      "type": "text",
+      "id": "product_title2",
+      "label": "Product Title-2"
+    },
+    {
+      "type": "number",
+      "id": "product_price2",
+      "label": "Product Price-2"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image3",
+      "label": "Product Image-3"
+    },
+    {
+      "type": "text",
+      "id": "product_badge3",
+      "label": "Product Badge"
+    },
+    {
+      "type": "text",
+      "id": "product_title3",
+      "label": "Product Title-3"
+    },
+    {
+      "type": "number",
+      "id": "product_price3",
+      "label": "Product Price-3"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image4",
+      "label": "Product Image-4"
+    },
+    {
+      "type": "text",
+      "id": "product_badge4",
+      "label": "Product Badge-4"
+    },
+    {
+      "type": "text",
+      "id": "product_title4",
+      "label": "Product Title-4"
+    },
+    {
+      "type": "number",
+      "id": "product_price4",
+      "label": "Product Price-4"
     }
-    
-    ]
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slides",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image5",
+          "label": "Product Image-5"
+        },
+        {
+          "type": "text",
+          "id": "product_badge5",
+          "label": "Product Badge-5"
+        },
+        {
+          "type": "text",
+          "id": "product_title5",
+          "label": "Product Title-5"
+        },
+        {
+          "type": "number",
+          "id": "product_price5",
+          "label": "Product Price-5"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
