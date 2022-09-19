@@ -1,15 +1,33 @@
 {{ 'style.announcement.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css' | url }}"/>
+
+<script src="{{ 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js' }}"></script>
 
 
-{%- for block in section.blocks -%}
-    <div class="announcement bar-{{ block.settings.color_scheme }} " role="region" aria-label="{{ 'sections.header.announcement' }}">
-        <a href="{{ block.settings.link}}" class="announcement__link">
-            <p class="announcement-bar__message h5">
-                {{ block.settings.text | escape }}
-            </p>
-        </a>
+<div class="swiper announcement">
+    <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+            <div class="announcement bar-{{ block.settings.color_scheme }} swiper-slide" role="region" aria-label="{{ 'sections.header.announcement' }}">
+                <a href="{{ block.settings.link}}" class="announcement__link">
+                    <p class="announcement-bar__message h5">
+                        {{ block.settings.text | escape }}
+                    </p>
+                </a>
+            </div>
+        {%- endfor -%}
     </div>
-{%- endfor -%}
+</div>
+
+
+<script>
+    const swiper = new Swiper('.announcement', {
+    loop: true,
+    autoplay: {
+        delay: 4000,
+    },
+});
+</script>
+
 
 
 {% schema %}
