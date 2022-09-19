@@ -1,4 +1,4 @@
-.plp__opener__wrap{
+.plp__opener__wrap {
     display: flex;
     flex-direction: column;
     padding: 40px;
@@ -8,12 +8,13 @@
     margin-top: 82px;
 }
 
-.opener__container{
+.opener__container {
     display: flex;
     max-width: 1400px;
-    margin: auto ;
+    margin: auto;
 }
-.opener__content{
+
+.opener__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +22,18 @@
     flex: 2;
 }
 
-.content__ibrow{
+.arrow_icon {
+    opacity: 0;
+    margin-left: 10px;
+    transition: all .4s ease-in-out;
+
+}
+
+.product__title:hover .arrow_icon {
+    opacity: 1;
+}
+
+.content__ibrow {
     font-weight: 300;
     font-size: 12px;
     line-height: 168%;
@@ -31,7 +43,7 @@
 
 }
 
-.opener__headline{
+.opener__headline {
     font-weight: 700;
     font-size: 40px;
     line-height: 62px;
@@ -40,7 +52,8 @@
     color: #000000;
     margin: 16px 0 40px 0;
 }
-.opener__cta{
+
+.opener__cta {
     display: flex;
     align-items: center;
     width: 236px;
@@ -49,54 +62,68 @@
     border: 1px solid #000000;
 }
 
-.opener__cta a{
+.opener__cta a {
     text-decoration: none;
     color: inherit;
 }
 
-.cta__icon{
+.cta__icon {
     margin-left: auto;
 }
-.opener__images{
+
+.opener__images {
     display: flex;
     align-items: flex-start;
     flex: 3;
     position: relative;
 }
-.openr__main__image{
+
+.openr__main__image {
     width: 570px;
-height: 790px;
-}
-.openr__side__image{
-    width: 304px;
-height: 359px;
-position: absolute;
-bottom: 0;
-right: 0;
+    height: 790px;
 }
 
-.collections_wrap{
+.openr__side__image {
+    width: 304px;
+    height: 359px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.collections_wrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-padding-top: 40px;
+    /* justify-content: space-between; */
+    padding-top: 40px;
+
 }
 
-.collection{
+.collection {
     width: 328px;
     height: 362px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
 
-.collection__img{
+.collection:last-child {
+    margin: 0 auto 0 0;
+}
+
+.collection a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.collection__img {
     width: 100%;
     max-height: 334px;
 }
 
 
-.product__title{
+.product__title {
     margin-top: 8px;
 }

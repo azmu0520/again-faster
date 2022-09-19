@@ -1,0 +1,16 @@
+{{'style.product-preview.css' | asset_url | stylesheet_tag }}
+
+<script>
+    console.log({{ product | json }});
+</script>
+<section class="product__preview">
+    <div class="media__scroller">
+        {% for image in product.media %}
+        <img src="{{image.src | img_url: 'master'}}" alt="{{image.alt}}">
+        {% endfor %}
+    </div>
+    <div class="product__details"></div>
+</section>
+
+
+

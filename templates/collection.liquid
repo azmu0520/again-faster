@@ -1,7 +1,7 @@
 {{ 'style.collection-all.css' | asset_url | stylesheet_tag }}
 
 <script>
-    console.log({{collection.products | json}});
+    console.log({{ collections[collection.handle] | json }});
 </script>
 <div class="collection__all__container">
 
@@ -10,18 +10,21 @@
             {{collection.title}}
         </h3>
         <ul class="collection__filter">
-            {% for product in collection.products %}
-                <li class="filter__item">{{product.title}}</li>
+            {% for collection in collections[collection.handle].products %}
+                <li class="filter__item-breadcums">
+                    {{collection.title | link_to: collection.url }}
+                </li>
                 <span>/</span>
             {% endfor %}
         </ul>
         <div class="products__wrap">
             {% for product in collection.products %}
+            
                 <div class="priduct__item">
                     <div class="image__wrap">
-                        <!-- <div class="product__badge-best-seller"></div>
-            <div class="product__badge-free-shipping"></div> -->
-                        <img src="{{product.images[0] | img_url: 'master' }}" alt="image" class="product__image">
+                        <a href="{{product.url}}">
+                            <img src="{{product.images[0] | img_url: 'master' }}" alt="image" class="product__image">
+                        </a>
                     </div>
                     <h5>{{product.title}}</h5>
                     <div class="stars__wrap">
@@ -40,3 +43,6 @@
     </div>
 
 </div>
+
+
+ 

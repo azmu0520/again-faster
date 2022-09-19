@@ -23,11 +23,11 @@
     </div>
 
     <div class="collections_wrap">
-        {% assign  collectionList = collection.metafields.accentuate.all_collection | split: "|" %}
+        {% assign  collectionList = collection.metafields.accentuate.collection_list | split: "|" %}
         {% for collection in collectionList %}
             <div class="collection">
                 <img alt="alt" class="collection__img" src="{{collections[collection].image.src | img_url: 'master' }}">
-                <h5 class="product__title">{{collections[collection].title | link_to: collections[collection].url}}</h5>
+                <h5 class="product__title">{{collections[collection].title | link_to: collections[collection].url}} <img src="{{'arrow.svg' | asset_url }}" alt="arrow" class="arrow_icon">  </h5>
             </div>
         {% endfor %}
 
