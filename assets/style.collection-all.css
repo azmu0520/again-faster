@@ -19,7 +19,7 @@
 
 .collection__filter {
     display: flex;
-    max-width: 100%;
+    max-width: fit-content;
     align-items: center;
     height: 24px;
     list-style: none;
@@ -31,7 +31,6 @@
     text-transform: uppercase;
     color: #C4C4C4;
     margin: 30px auto 40px auto;
-    position: relative;
 }
 
 .collection__filter span,
@@ -97,17 +96,30 @@
     font-family: 'Oswald';
 }
 
-.filter__item-breadcums:hover {
-    color: #000000;
+
+.filter__item-breadcums {
     position: relative;
 }
 
-.filter__item-breadcums::before {
-    content: "";
+.filter__item-breadcums:hover {
+    display: block;
+    color: #000000;
+
+}
+
+.filter__item-breadcums a::before {
+    content: " ";
     position: absolute;
-    width: fit-content;
+    width: 100%;
     bottom: -8px;
     height: 2px;
     background-color: #c2a578;
-    /* z-index: 10; */
+    transform: scaleX(0);
+    transition: all .3s ease-in;
+}
+
+.filter__item-breadcums:hover>a::before,
+.active_link>a::before {
+    transform: scaleX(1) !important;
+
 }
