@@ -1,16 +1,72 @@
 {{'style.product-preview.css' | asset_url | stylesheet_tag }}
 
-<script>
-    console.log({{ product | json }});
-</script>
+
 <section class="product__preview">
-    <div class="media__scroller">
+    <div class="media__scroller swiper swiper-product-preview">
+       <div class="swiper-wrapper product-preview__wrapper">
         {% for image in product.media %}
-        <img src="{{image.src | img_url: 'master'}}" alt="{{image.alt}}">
+        <div class="swiper-slide product__img">
+            <img src="{{image.src | img_url: 'master'}}" alt="{{image.alt}}">
+        </div>
         {% endfor %}
+       </div>
+       <div class="swiper-pagination"></div>
     </div>
-    <div class="product__details"></div>
+    <div class="product__details">
+        <div class="details__wrapper">
+            <h3> {{product.title}} </h3>
+            <span class="details__price">${{product.price}}</span>
+            <div class="details__reviews">
+                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
+                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
+                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
+                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
+                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
+                <span class="review__text ">18 reviews</span>
+            </div>
+            <p class="product__description">
+                {{product.description}}
+            </p>
+            <div class="product__variants">
+                {% for variant in product.variants %}
+                <script>
+                    console.log({{variant | json}});
+                </script>
+                {% if variant.available == true %}
+                    <div class="variant">
+                        <input type="radio" id="{{variant.id}}" name="variant" hidden class="variant__input">
+                        <div class="variant__wrap">
+                            <label for="{{variant.id}}">
+                                {{variant.title}}
+                            </label>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="variant ">
+                        <div class="disable variant__wrap">
+                            {{variant.title}}
+                        </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="detail__cta">
+                <a href="#">
+                    Add to Cart
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
 
 
-
+<script>
+    const swiper = new Swiper('.swiper-product-preview', {
+        direction:'vertical',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable:true
+        },
+    });
+    
+  </script>

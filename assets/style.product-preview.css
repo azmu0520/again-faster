@@ -1,3 +1,150 @@
+@font-face {
+    font-family: 'Metropolis';
+    src: url(/assets/Metropolis-Regular.otf) format('otf');
+}
+
 .product__preview {
-    margin-top: 100px;
+    display: flex;
+    width: 100%;
+    margin-top: 52px;
+    height: calc(100vh - 92px);
+}
+
+.media__scroller {
+    flex: 1;
+    max-height: 100%;
+}
+
+.product__details {
+    flex: 1;
+}
+
+.product-preview__wrapper {
+    padding-right: 20px;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+    background-color: black;
+}
+
+.product__details {
+    display: flex;
+    width: 100%;
+}
+
+.details__wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.details__price {
+    margin: 8px 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 167.5%;
+    color: #000000;
+
+}
+
+.details__reviews {
+    display: flex;
+    align-items: center;
+}
+
+.icon__star {
+    margin-right: 4px;
+}
+
+.review__text {
+    margin-left: 8px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 167.5%;
+    color: #000000;
+
+}
+
+.product__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 167.5%;
+    color: #000000;
+    margin: 24px 0 16px 0;
+}
+
+.product__variants {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    max-height: 244px;
+    overflow-y: auto;
+}
+
+.variant {
+    display: flex;
+    margin: 8px auto;
+
+}
+
+.variant__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #F1F1F1;
+    width: 142px;
+    height: 55px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 167.5%;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+}
+
+.product__img {
+    width: 100%;
+    height: 100%;
+}
+
+.product__img img {
+    max-width: 100%;
+}
+
+.variant label {
+    cursor: pointer;
+}
+
+.variant__input:checked~.variant__wrap {
+    border: 1px solid #000000;
+}
+
+.disable {
+    font-family: 'Metropolis';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 167.5%;
+    text-align: center;
+    text-decoration-line: line-through;
+    color: #C4C4C4;
+    cursor: no-drop;
+}
+
+.detail__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 43px;
+    background: #000;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 24px 0;
 }
