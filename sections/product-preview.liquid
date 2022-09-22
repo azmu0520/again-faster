@@ -1,8 +1,5 @@
 {{'style.product-preview.css' | asset_url | stylesheet_tag }}
 
-<script>
-    console.log({{ product.metafields.accentuate.frequently_bought_image[0] | json}},'o');
-</script>
 <section class="product__preview">
     <div class="media__scroller swiper swiper-product-preview">
        <div class="swiper-wrapper product-preview__wrapper">
@@ -65,7 +62,7 @@
                 <div class="extra__products">
                     <div class="extra__product">
                         <div class="product__image__wrap">
-                            <img src="{{product.metafields.accentuate.frequently_bought_image[0].src }}" alt="product__image__wrap">
+                            <img src="{{product.metafields.accentuate.frequently_bought_image[0][0].src }}" alt="product__image__wrap">
                         </div>
 
                         <div class="product__content__wrap">
@@ -73,7 +70,6 @@
                                 {{product.metafields.accentuate.fb_product_title}}
                             </div>
                             <a href="{{product.metafields.accentuate.fb_product_cta}}" class="product__cta">
-                                
                                 {{product.metafields.accentuate.fb_product_cta_text}}
                             </a>
                         </div>
