@@ -1,6 +1,8 @@
 {{'style.product-preview.css' | asset_url | stylesheet_tag }}
 
-
+<script>
+    console.log({{ product.metafields.accentuate.frequently_bought_image[0] | json}},'o');
+</script>
 <section class="product__preview">
     <div class="media__scroller swiper swiper-product-preview">
        <div class="swiper-wrapper product-preview__wrapper">
@@ -29,9 +31,7 @@
             </p>
             <div class="product__variants">
                 {% for variant in product.variants %}
-                <script>
-                    console.log({{variant | json}});
-                </script>
+              
                 {% if variant.available == true %}
                     <div class="variant">
                         <input type="radio" id="{{variant.id}}" name="variant" hidden class="variant__input">
@@ -50,10 +50,35 @@
                 {% endif %}
                 {% endfor %}
             </div>
+            {% if product.tags contains 'free_shipping'%}
+                <div class="free__shipping">
+                    Available for Free shipping!
+                </div>
+            {% endif %}
             <div class="detail__cta">
                 <a href="#">
                     Add to Cart
                 </a>
+            </div>
+            <div class="extra__products__wrap">
+                <h4>Frequently bought with</h4>
+                <div class="extra__products">
+                    <div class="extra__product">
+                        <div class="product__image__wrap">
+                            <img src="{{product.metafields.accentuate.frequently_bought_image[0].src }}" alt="product__image__wrap">
+                        </div>
+
+                        <div class="product__content__wrap">
+                            <div class="product__title">
+                                {{product.metafields.accentuate.fb_product_title}}
+                            </div>
+                            <a href="{{product.metafields.accentuate.fb_product_cta}}" class="product__cta">
+                                
+                                {{product.metafields.accentuate.fb_product_cta_text}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -70,3 +95,44 @@
     });
     
   </script>
+
+
+{% schema %}
+{
+    "name":"Porduct Preview",
+    "max_blocks": 12,
+    "blocks": [
+        {
+            "type":"Fb-Products",
+            "name":"Frequently bought", 
+            "settings": [
+                {
+                    "type":"text",
+                    "id":"product_label",
+                    "label":"Product Label"
+                },
+                {
+                    "type":"image_picker",
+                    "id":"product_image",
+                    "label":"Product Image"
+                },
+                {
+                    "type":"text",
+                    "id":"product_title",
+                    "label":"Product Title"
+                },
+                {
+                    "type":"text",
+                    "id":"product_cta_text",
+                    "label":"Product Cta Text"
+                },
+                {
+                    "type":"url",
+                    "id":"product_cta_url",
+                    "label":"Product Cta Link"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -4,9 +4,7 @@
 <div class='swiper swiper1'>
   <div class='swiper-wrapper'>
     {% assign selected = section.settings.collection_list | first %}
-    <script>
-      console.log({{selected.handle | json}},'p');
-    </script>
+
     {% for product in collections[selected.handle].products %}
       <div class='swiper-slide collection-wrap'>
         <div class='image__wrapp'>

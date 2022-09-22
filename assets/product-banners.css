@@ -1,0 +1,5 @@
+.banners__wrap {
+    display: flex;
+    flex-direction: column;
+    background: #000;
+}
