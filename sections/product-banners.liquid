@@ -1,16 +1,27 @@
-{{'product-banners.ccs' | asset_url | stylesheet_tag }}
+{{'style.product-banners.css' | asset_url | stylesheet_tag }}
 {% assign text = product.metafields.accentuate.banner_text %}
 {% assign images = product.metafields.accentuate.banner_image %}
 
 
+<script>
+  console.log({{ text | json}});
+</script>
 
 
-
-<div class="banners__wrap">
-    {% for item in (1..text.size) %}
-    <!-- {% if item != blank %} -->
-     
-    <!-- {% endif %} -->
-    {% endfor %}
+<div class="banners__container">
+  {% for item in (0..text.size) %}
+    {% if text[item] != blank %}
+     <div class="banner__wrap item{{item}}">
+        <div class="banner__content">
+          {{text[item]}}
+        </div>
+        <div class="banner__image">
+          <span class="image__ellipse1"></span>
+          <span class="image__ellipse2"></span>
+          <img src="{{images[item][0].src}}" alt="banner__image">
+        </div>
+     </div>
+    {% endif %}
+  {% endfor %}
 
 </div>
