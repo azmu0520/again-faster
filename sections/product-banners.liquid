@@ -1,0 +1,18 @@
+{{'product-banners.ccs' | asset_url | stylesheet_tag }}
+{% assign text = product.metafields.accentuate.banner_text %}
+{% assign images = product.metafields.accentuate.banner_image %}
+
+
+
+
+
+<div class="banners__wrap">
+    {% for item in (1..text.size) %}
+    <!-- {% if item != blank %} -->
+      <script>
+        console.log({{item}});
+      </script>
+    <!-- {% endif %} -->
+    {% endfor %}
+
+</div>
