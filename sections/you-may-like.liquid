@@ -1,0 +1,33 @@
+{{ 'style.you__may__like.css' | asset_url | stylesheet_tag }}
+
+{% assign product_title = product.metafields.accentuate.you_might_also_like_products
+  | join: '|'
+%}
+
+{% assign product_title = product_title | split: '|' %}
+<section class='you__like'>
+  <h3 class='you__like__title'>
+    {{ product.metafields.accentuate.you_might_also_like_title }}
+  </h3>
+  <div class='products__grid'>
+    {% for item in product_title %}
+      <div class='grid__item'>
+        <div class='grid__image'>
+          <img
+            src='{{all_products[item].images[0] | img_url: 'master'}} '
+            alt='grid__image'
+          >
+        </div>
+        <h5 class='grid__title'>{{ all_products[item].title }}</h5>
+        <div class='grid__stars'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='grid__stars'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='grid__stars'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='grid__stars'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='grid__stars'>
+          <img src='{{'icon.star.svg' | asset_url }}' alt='grid__stars'>
+        </div>
+        <h5 class='grid__price'>{{ all_products[item].price | money }}</h5>
+      </div>
+    {% endfor %}
+  </div>
+</section>
