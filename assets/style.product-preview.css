@@ -1,215 +1,209 @@
 @font-face {
-    font-family: 'Metropolis';
-    src: url(/assets/Metropolis-Regular.otf) format('otf');
+  font-family: 'Metropolis';
+  src: url(/assets/Metropolis-Regular.otf) format('otf');
 }
 
 .product__preview {
-    display: flex;
-    width: 100%;
-    margin-top: 52px;
-    height: calc(100vh - 92px);
+  display: flex;
+  width: 100%;
+  margin-top: 52px;
+  height: calc(100vh - 92px);
 }
 
 .media__scroller {
-    flex: 1;
-    max-height: 100%;
+  flex: 1;
+  max-height: 100%;
 }
 
 .product__details {
-    flex: 1;
+  flex: 1;
 }
 
 .product-preview__wrapper {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: black;
+  background-color: black;
 }
 
 .product__details {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .details__wrapper {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    width: 100%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .details__price {
-    margin: 8px 0;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 167.5%;
-    color: #000000;
-
+  margin: 8px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  color: #000000;
 }
 
 .details__reviews {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .icon__star {
-    margin-right: 4px;
+  margin-right: 4px;
 }
 
 .review__text {
-    margin-left: 8px;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 167.5%;
-    color: #000000;
-
+  margin-left: 8px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 167.5%;
+  color: #000000;
 }
 
 .product__description {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 167.5%;
-    color: #000000;
-    margin: 24px 0 16px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  color: #000000;
+  margin: 24px 0 16px 0;
 }
 
 .product__variants {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100%;
-    max-height: 244px;
-    overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  max-height: 244px;
+  overflow-y: auto;
 }
 
 .variant {
-    display: flex;
-    margin: 8px auto;
-
+  display: flex;
+  margin: 8px auto;
 }
 
 .variant__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #F1F1F1;
-    width: 142px;
-    height: 55px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 167.5%;
-    text-align: center;
-    color: #000000;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f1f1f1;
+  width: 142px;
+  height: 55px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  text-align: center;
+  color: #000000;
+  cursor: pointer;
 }
 
 .product__img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .product__img img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .variant label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.variant__input:checked~.variant__wrap {
-    border: 1px solid #000000;
+.variant__input:checked ~ .variant__wrap {
+  border: 1px solid #000000;
 }
 
 .disable {
-    font-family: 'Metropolis';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 167.5%;
-    text-align: center;
-    text-decoration-line: line-through;
-    color: #C4C4C4;
-    cursor: no-drop;
+  font-family: 'Metropolis';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  text-align: center;
+  text-decoration-line: line-through;
+  color: #c4c4c4;
+  cursor: no-drop;
 }
 
 .detail__cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 43px;
-    background: #000;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
-    letter-spacing: 0.175em;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 43px;
+  background: #000;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.175em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 24px 0;
+  cursor: pointer;
 }
 
 .free__shipping {
-    font-family: 'Metropolis';
-    margin-top: 16px;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 167.5%;
-    color: #979797;
-
+  font-family: 'Metropolis';
+  margin-top: 16px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  color: #979797;
 }
 
 .extra__products__wrap {
-    display: flex;
-    flex-direction: column;
-    padding-top: 16px;
-
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
 }
 
 .extra__products {
-    display: flex;
-    padding-top: 25px;
+  display: flex;
+  padding-top: 25px;
 }
 
 .extra__product {
-    display: flex;
+  display: flex;
 }
 
 .product__image__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 98px;
-    max-height: 125px;
-    background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 98px;
+  max-height: 125px;
+  background-color: #f1f1f1;
 }
 
 .product__image__wrap img {
-    max-width: 100%;
-    width: 100%;
+  max-width: 100%;
+  width: 100%;
 }
 
 .product__content__wrap {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 16px;
-
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 16px;
 }
 
 .product__title {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 167.5%;
-    color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  color: #000000;
 }
 
 .product__cta {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 167.5%;
-    text-decoration-line: underline;
-    color: #000000;
-
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 167.5%;
+  text-decoration-line: underline;
+  color: #000000;
 }
