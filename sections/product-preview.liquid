@@ -1,134 +1,213 @@
-{{'style.product-preview.css' | asset_url | stylesheet_tag }}
+{{ 'style.product-preview.css' | asset_url | stylesheet_tag }}
 
-<section class="product__preview">
-    <div class="media__scroller swiper swiper-product-preview">
-       <div class="swiper-wrapper product-preview__wrapper">
-        {% for image in product.media %}
-        <div class="swiper-slide product__img">
-            <img src="{{image.src | img_url: 'master'}}" alt="{{image.alt}}">
+{% assign variant_value = ' ' %}
+<script></script>
+<section class='product__preview'>
+  <div class='media__scroller swiper swiper-product-preview'>
+    <div class='swiper-wrapper product-preview__wrapper'>
+      {% for image in product.media %}
+        <div class='swiper-slide product__img'>
+          <img src='{{image.src | img_url: 'master'}}' alt='{{image.alt}}'>
         </div>
-        {% endfor %}
-       </div>
-       <div class="swiper-pagination"></div>
+      {% endfor %}
     </div>
-    <div class="product__details">
-        <div class="details__wrapper">
-            <h3> {{product.title}} </h3>
-            <span class="details__price">${{product.price}}</span>
-            <div class="details__reviews">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
-                <img src="{{'icon.star.svg' | asset_url }}" alt="icon.star" class="icon__star">
-                <span class="review__text ">18 reviews</span>
-            </div>
-            <p class="product__description">
-                {{product.description}}
-            </p>
-            <div class="product__variants">
-                {% for variant in product.variants %}
-              
-                {% if variant.available == true %}
-                    <div class="variant">
-                        <input type="radio" id="{{variant.id}}" name="variant" hidden class="variant__input">
-                        <div class="variant__wrap">
-                            <label for="{{variant.id}}">
-                                {{variant.title}}
-                            </label>
-                        </div>
-                    </div>
-                {% else %}
-                    <div class="variant ">
-                        <div class="disable variant__wrap">
-                            {{variant.title}}
-                        </div>
-                    </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-            {% if product.tags contains 'free_shipping'%}
-                <div class="free__shipping">
-                    Available for Free shipping!
+    <div class='swiper-pagination'></div>
+  </div>
+  <form
+    method='post'
+    action='/cart/add'
+    class='product__details'
+    id='form'
+  >
+    <div class='details__wrapper'>
+      <h3>{{ product.title }}</h3>
+      <span class='details__price'>{{ product.price | money }}</span>
+      <div class='details__reviews'>
+        <img
+          src='{{'icon.star.svg' | asset_url }}'
+          alt='icon.star'
+          class='icon__star'
+        >
+        <img
+          src='{{'icon.star.svg' | asset_url }}'
+          alt='icon.star'
+          class='icon__star'
+        >
+        <img
+          src='{{'icon.star.svg' | asset_url }}'
+          alt='icon.star'
+          class='icon__star'
+        >
+        <img
+          src='{{'icon.star.svg' | asset_url }}'
+          alt='icon.star'
+          class='icon__star'
+        >
+        <img
+          src='{{'icon.star.svg' | asset_url }}'
+          alt='icon.star'
+          class='icon__star'
+        >
+        <span class='review__text '>18 reviews</span>
+      </div>
+      <p class='product__description'>
+        {{ product.description }}
+      </p>
+
+      {% if product.available == true %}
+        <div class='product__variants'>
+          {% for variant in product.variants %}
+            {% if variant.available == true %}
+              <div class='variant'>
+                <input
+                  type='radio'
+                  id='{{variant.id}}'
+                  name='variant'
+                  hidden
+                  class='variant__input'
+                  value='{{ variant.price }}'
+                >
+                <div class='variant__wrap'>
+                  <label for='{{variant.id}}'>
+                    {{ variant.title }}
+                  </label>
                 </div>
+              </div>
+            {% else %}
+              <div class='variant '>
+                <div class='disable variant__wrap'>
+                  {{ variant.title }}
+                </div>
+              </div>
             {% endif %}
-            <div class="detail__cta">
-                <a href="#">
-                    Add to Cart
-                </a>
-            </div>
-            <div class="extra__products__wrap">
-                <h4>Frequently bought with</h4>
-                <div class="extra__products">
-                    <div class="extra__product">
-                        <div class="product__image__wrap">
-                            <img src="{{product.metafields.accentuate.frequently_bought_image[0][0].src }}" alt="product__image__wrap">
-                        </div>
-
-                        <div class="product__content__wrap">
-                            <div class="product__title">
-                                {{product.metafields.accentuate.fb_product_title}}
-                            </div>
-                            <a href="{{product.metafields.accentuate.fb_product_cta}}" class="product__cta">
-                                {{product.metafields.accentuate.fb_product_cta_text}}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          {% endfor %}
         </div>
+      {% endif %}
+      {% if product.tags contains 'free_shipping' %}
+        <div class='free__shipping'>Available for Free shipping!</div>
+      {% endif %}
+      <button type='submit' class='detail__cta'>Add to Cart</button>
+      <div class='extra__products__wrap'>
+        <h4>Frequently bought with</h4>
+        <div class='extra__products'>
+          <div class='extra__product'>
+            <div class='product__image__wrap'>
+              <img
+                src='{{product.metafields.accentuate.frequently_bought_image[0][0].src }}'
+                alt='product__image__wrap'
+              >
+            </div>
+
+            <div class='product__content__wrap'>
+              <div class='product__title'>
+                {{ product.metafields.accentuate.fb_product_title }}
+              </div>
+              <a
+                href='{{product.metafields.accentuate.fb_product_cta}}'
+                class='product__cta'
+              >
+                {{ product.metafields.accentuate.fb_product_cta_text }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </form>
 </section>
 
-
 <script>
-    const swiper = new Swiper('.swiper-product-preview', {
-        direction:'vertical',
-        pagination: {
-            el: '.swiper-pagination',
-            clickable:true
-        },
-    });
-    
-  </script>
+  const swiper = new Swiper('.swiper-product-preview', {
+    direction: 'vertical',
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+  let variant__value = document.querySelectorAll('.variant__input');
+  let price = document.getElementsByClassName('details__price')[0];
+  let submit = document.getElementsByClassName('detail__cta')[0];
+  let form = document.querySelector('#form');
 
+  const addToCart = (id, qtty) => {
+    let formData = {
+      items: [
+        {
+          id: id,
+          quantity: qtty,
+        },
+      ],
+    };
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => console.log(res))
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let var_id = form.querySelector('.variant__input:checked')?.id;
+    let no_variant = form.querySelector('.variant__input')?.id;
+    if (var_id !== undefined) {
+      addToCart(var_id, 1);
+    } else {
+      addToCart(no_variant, 1);
+    }
+  });
+
+  [...variant__value].map((item) => {
+    item.addEventListener('click', () => {
+      let changed = item.value.slice(0, -2);
+      price.innerHTML = `$${changed}.00`;
+    });
+  });
+</script>
 
 {% schema %}
 {
-    "name":"Porduct Preview",
-    "max_blocks": 12,
-    "blocks": [
+  "name": "Porduct Preview",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "Fb-Products",
+      "name": "Frequently bought",
+      "settings": [
         {
-            "type":"Fb-Products",
-            "name":"Frequently bought", 
-            "settings": [
-                {
-                    "type":"text",
-                    "id":"product_label",
-                    "label":"Product Label"
-                },
-                {
-                    "type":"image_picker",
-                    "id":"product_image",
-                    "label":"Product Image"
-                },
-                {
-                    "type":"text",
-                    "id":"product_title",
-                    "label":"Product Title"
-                },
-                {
-                    "type":"text",
-                    "id":"product_cta_text",
-                    "label":"Product Cta Text"
-                },
-                {
-                    "type":"url",
-                    "id":"product_cta_url",
-                    "label":"Product Cta Link"
-                }
-            ]
+          "type": "text",
+          "id": "product_label",
+          "label": "Product Label"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "product_cta_text",
+          "label": "Product Cta Text"
+        },
+        {
+          "type": "url",
+          "id": "product_cta_url",
+          "label": "Product Cta Link"
         }
-    ]
+      ]
+    }
+  ]
 }
 {% endschema %}
