@@ -1,5 +1,5 @@
 {{ 'style.header.css' | asset_url | stylesheet_tag }}
-
+{{ 'script.cart.js' | asset_url | script_tag }}
 {% assign page_url_full = request.path %}
 <nav
   class='header__nav'
@@ -109,13 +109,16 @@
 
 <div id='modal'>
   <div class='modal__header'>
-    <h3>My Cart</h3>
+    <h3 class='modal--header'>My Cart</h3>
     <img
       src='{{'icons.close.svg' | asset_url }}'
       alt='icons.close'
       class='icon__close'
     >
   </div>
+
+  
+  
 
   {% if cart.items != blank %}
     <div class='cart__body'>

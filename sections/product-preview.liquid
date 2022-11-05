@@ -153,7 +153,7 @@
         console.error('Error:', error);
       });
   };
-  form.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', (e) => {
     e.preventDefault();
     let var_id = form.querySelector('.variant__input:checked')?.id;
     let no_variant = form.querySelector('.variant__input')?.id;
@@ -165,7 +165,7 @@
   });
 
   [...variant__value].map((item) => {
-    item.addEventListener('click', () => {
+    item?.addEventListener('click', () => {
       let changed = item.value.slice(0, -2);
       price.innerHTML = `$${changed}.00`;
     });
